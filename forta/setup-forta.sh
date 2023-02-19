@@ -37,7 +37,7 @@ sudo mkdir -p /etc/systemd/system/forta.service.d
 
 cat << EOF > env.conf
 [Service]
-Environment="FORTA_DIR=/home/forta-user/.forta"
+Environment="FORTA_DIR=/home/$TARGET_USER/.forta"
 Environment="FORTA_PASSPHRASE=$FORTA_PASSPHRASE"
 Restart=always
 StartLimitBurst=2
