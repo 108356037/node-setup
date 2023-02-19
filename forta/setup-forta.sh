@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if [ "$FORTA_PASSPHRASE" == "" ]; then
+    echo "env FORTA_PASSPHRASE must be set!"
+    exit 1 
+fi
+
+if [ "$TARGET_USER" == "" ]; then
+    echo "env TARGET_USER must be set!"
+    exit 1 
+fi
+
 sudo bash -c 'cat <<EOF > /etc/docker/daemon.json 
 {
    "default-address-pools": [
