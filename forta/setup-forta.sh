@@ -31,6 +31,10 @@ EOF'
 
 sudo systemctl restart docker
 
+# Synchronize time to avoid token-expired error
+sudo systemctl enable systemd-timesyncd
+sudo systemctl start systemd-timesyncd
+
 forta init --passphrase $FORTA_PASSPHRASE
 
 sudo mkdir -p /etc/systemd/system/forta.service.d
